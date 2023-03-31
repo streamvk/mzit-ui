@@ -1,0 +1,134 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!-- Header starts here -->
+<div class="register_header">
+  <div class="home_button">
+        <button mat-raised-button (click)="home()">Home</button>
+      </div>
+  <div class="heading">
+    <h2>Mind Zone Student Registration</h2>
+  </div>
+</div>
+<!-- Header ends here -->
+  <div>
+  <div class="form">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+      <div class="row">
+        <hr />
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label> First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                [(ngModel)]="student.firstName"
+                value={{student.firstName}}
+                name="firstName"
+              />
+            </div>
+
+            <div class="form-group">
+              <label> Middle Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="middleName"
+                [(ngModel)]="student.middleName"
+                name="middleName"
+              />
+            </div>
+            <div class="form-group">
+              <label> Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                [(ngModel)]="student.lastName"
+                name="lastName"
+              />
+            </div>
+
+            <div class="form-group">
+              <label> Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="emailId"
+                [(ngModel)]="student.email"
+                name="emailId"
+                placeholder="mzit@gmail.com"
+              />
+            </div>
+            <div class="form-group">
+              <label> Phone Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="phoneNumber"
+                [(ngModel)]="student.phoneNumber"
+                name="phoneNumber"
+                placeholder="000-000-0000"
+              />
+            </div>
+            <div class="form-group">
+              <label> Grade</label>
+              <input
+                type="text"
+                class="form-control"
+                id="grade"
+                [(ngModel)]="student.grade"
+                name="grade"
+                placeholder="1/2/3/4/5"
+              />
+            </div>
+            <div class="form-group">
+              <label> Start Date</label>
+              <input
+                type="text"
+                class="form-control"
+                id="startDate"
+                [(ngModel)]="student.startDate"
+                name="startDate"
+                placeholder="mm-dd-yyyy"
+              />
+            </div>
+            <div class="form-group">
+              <label> End Date</label>
+              <input
+                type="text"
+                class="form-control"
+                id="endDate"
+                [(ngModel)]="student.endDate"
+                name="endDate"
+                placeholder="mm-dd-yyyy"
+              />
+            </div>
+            <div class="form-group">
+              <label> Status </label>
+              <select
+                class="form-control"
+                id="status"
+                [(ngModel)]="student.status"
+                name="status"
+              >
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
+              </select>
+            </div>
+            <br />
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              (click)="register(student)">
+              Submit
+            </button>
+          </form>
+          <p>{{message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

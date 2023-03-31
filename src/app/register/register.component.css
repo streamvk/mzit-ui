@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 40px;
+}
+
+.register_header{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 350px;
+}
+
+.heading{
+    display: flex;
+    flex-direction: row;
+
+}
+.home_button{
+
+    display: flex;
+    flex-direction: row;
+}
+
