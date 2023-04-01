@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
-import { ApiClientService } from '../api-client.service';
-import { Student } from '../entity/student';
+import { ApiClientService } from '../service/api-client.service';
+import { Students } from '../entity/students';
 
 @Component({
   selector: 'app-update',
@@ -10,7 +10,7 @@ import { Student } from '../entity/student';
 })
 export class UpdateComponent implements OnInit{
 
-  student: Student = new Student();
+  student: Students = new Students();
   message: string;
   studentId: number;
 
@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit{
               private router: Router,
               private route: ActivatedRoute){}
   ngOnInit() {
-    this.student = new Student();
+    this.student = new Students();
     console.log('In side ngOnInit of update component..!!')
     this.studentId = this.route.snapshot.params['studentId']
     let response = this.apiService.getById(this.studentId);
@@ -30,7 +30,7 @@ export class UpdateComponent implements OnInit{
     
   }
 
-  update(student:Student){
+  update(student:Students){
 
     let response = this.apiService.update(student);
     response.subscribe(data=>{
@@ -40,7 +40,7 @@ export class UpdateComponent implements OnInit{
       if(response !=null){
         this.message= 'Student ' +this.student.firstName+' Details Successfully Updated..!!';
       }
-      this.student = new Student();
+      this.student = new Students();
 
     });
 

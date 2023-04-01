@@ -9,8 +9,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {DatePipe} from '@angular/common';
 //Internal Component
-import {ApiClientService} from '../app/api-client.service';
+import {ApiClientService} from './service/api-client.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
@@ -36,10 +37,11 @@ import { DeleteComponent } from './delete/delete.component';
     MatButtonModule,
     MatToolbarModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
 
   ],
-  providers: [ApiClientService],
+  providers: [ApiClientService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

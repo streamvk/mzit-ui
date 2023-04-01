@@ -1,43 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../entity/student';
+import { Students } from '../entity/students';
 import { Router } from '@angular/router';
 
-import { ApiClientService } from '../api-client.service';
+import { ApiClientService } from '../service/api-client.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit{
-
+export class RegisterComponent implements OnInit {
   students: any;
-  student: Student = new Student();
+  student: Students = new Students();
   message: string;
 
-  constructor(private apiService: ApiClientService,
-    private router: Router
-    ){}
+  constructor(private apiService: ApiClientService, 
+    private router: Router) {}
 
   ngOnInit(): void {}
 
-  register(student:Student){
+  register(student: Students) {
 
     let response = this.apiService.register(student);
 
-    response.subscribe(data=>{
-     
+    response.subscribe((data) => {
       this.student = data;
-      if(data !=null){
-
-        this.message = 'Student '+this.student.firstName+ ' added successfully..!!'
+      console.log(this.student.firstName)
+      if (data != null) {
+        this.message =
+          'Student ' + this.student.firstName + ' added successfully..!!';
       }
-      this.student = new Student();
-    })
+      this.student = new Students();
+    });
   }
 
-  home(){
+  home() {
     this.router.navigate(['home']);
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiClientService } from '../api-client.service';
-import { Student } from '../entity/student';
+import { ApiClientService } from '../service/api-client.service';
+import { Students } from '../entity/students';
 
 
 @Component({
@@ -11,14 +11,14 @@ import { Student } from '../entity/student';
 })
 export class ReadComponent implements OnInit{
 
-  student: Student = new Student();
+  student: Students = new Students();
   students: any;
   message: string;
 
   constructor(private apiService: ApiClientService,
               private router: Router
     ){}
-  ngOnInit():void {
+  ngOnInit() {
     this.readAll();
   }
 
@@ -35,9 +35,13 @@ export class ReadComponent implements OnInit{
   }
 
   deleteById(studentId:number){
-    this.apiService.deleteById(studentId).subscribe();
-    this.ngOnInit();
-    alert()
+    this.apiService.deleteById(studentId).subscribe(data=>{
+      this.ngOnInit();
+    });
+    
+    this.message='Student deleted successfully..!!'
+
+    
   }
 
   update(studentId:number){

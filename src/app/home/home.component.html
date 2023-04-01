@@ -1,17 +1,13 @@
-<div class="home">
-    <div class="navbar">
-    <mat-toolbar class="navbar_content">
-        <span>Mind Zone Student Registration</span>
-      </mat-toolbar>
+<div>
+  <mat-toolbar class="navbar">
+    <span>Mind Zone Institute</span>
+  </mat-toolbar>
+  <div class="action">
+    <div>
+      <button mat-raised-button (click)="register()">Register</button>
     </div>
-    
-    <div class="action">
-      <div>
-        <button mat-raised-button (click)="register()">Register</button>
-      </div>
-      <div>
-        <button mat-raised-button (click)="students()">List Of Students</button>
-      </div>
-    
+    <div>
+      <button mat-raised-button (click)="students()">List Of Students</button>
     </div>
-    </div>  
+  </div>
+</div>
